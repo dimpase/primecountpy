@@ -15,7 +15,7 @@ from libcpp.string cimport string as cppstring
 from cpython.int cimport PyInt_FromString
 
 from cysignals.signals cimport sig_on, sig_off
-cimport sage.libs.primecount as primecount
+cimport defs as primecount
 
 cdef inline int _do_sig(int64_t n):
     "threshold for sig_on/sig_off"
@@ -63,7 +63,7 @@ cpdef prime_pi_128(n):
     sig_off()
     return PyInt_FromString(ans, NULL, 10)
 
-cpdef int64_t nth_prime(int64_t n) except -1:
+cpdef int64_t nth_prime(int64_t n): # except -1:
     r"""
     Return the ``n``-th prime integer.
 
