@@ -1,0 +1,3 @@
+include AUTHORS
+include setup.py cydoctest.py pyproject.toml
+graft primecount
