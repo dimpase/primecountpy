@@ -15,7 +15,7 @@ from libcpp.string cimport string as cppstring
 from cpython.int cimport PyInt_FromString
 
 from cysignals.signals cimport sig_on, sig_off
-cimport defs as primecount
+cimport defs as pcount
 
 cdef inline int _do_sig(int64_t n):
     "threshold for sig_on/sig_off"
@@ -39,7 +39,7 @@ cpdef int64_t prime_pi(int64_t n, method=None) except -1:
     """
     cdef int64_t ans
     if _do_sig(n): sig_on()
-    ans = primecount.pi(n)
+    ans = pcount.pi(n)
     if _do_sig(n): sig_off()
     return ans
 
@@ -59,11 +59,11 @@ cpdef prime_pi_128(n):
     cdef cppstring s = str(n).encode('ascii')
     cdef bytes ans
     sig_on()
-    ans = primecount.pi(s)
+    ans = pcount.pi(s)
     sig_off()
     return PyInt_FromString(ans, NULL, 10)
 
-cpdef int64_t nth_prime(int64_t n): # except -1:
+cpdef int64_t nth_prime(int64_t n) except -1:
     r"""
     Return the ``n``-th prime integer.
 
@@ -79,7 +79,7 @@ cpdef int64_t nth_prime(int64_t n): # except -1:
 
     cdef int64_t ans
     if _do_sig(n): sig_on()
-    ans = primecount.nth_prime(n)
+    ans = pcount.nth_prime(n)
     if _do_sig(n): sig_off()
     return ans
 
@@ -99,5 +99,4 @@ cpdef int64_t phi(int64_t x, int64_t a):
          sage: phi(2**30, 100) == 95446716
          True
     """
-    return primecount.phi(x, a)
-
+    return pcount.phi(x, a)
