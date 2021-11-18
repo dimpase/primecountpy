@@ -18,8 +18,9 @@ with open("README.md", "r", encoding="utf-8") as fh:
 extensions = [
     Extension(
         "primecount.primecount",
-        include_dirs = ["/usr/local/include"],
+#        include_dirs = ["/usr/local/include"],
         sources=["primecount/primecount.pyx"],
+        language="c++",
         libraries=["primecount"]),
 #    Extension(
 #        "primecount.test",
@@ -38,7 +39,7 @@ setup(
     license='GPLv3',
 #    language_level=3,
     packages=find_packages(),
-    include_dirs = ["/usr/local/include"],
+#    include_dirs = ["/usr/local/include"],
     ext_modules=extensions,
     zip_safe=False,
     python_requires='>=3.7',
