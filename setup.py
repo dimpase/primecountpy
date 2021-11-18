@@ -33,7 +33,7 @@ setup(
     description='bla',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/kliem/primecount',
+    url='https://github.com/dimpase/primecount',
     author='Vincent',
     author_email='sage-devel@googlegroups.com',
     license='GPLv3',
