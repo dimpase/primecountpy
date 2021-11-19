@@ -12,6 +12,7 @@ cd primecount
 cmake . -DBUILD_SHARED_LIBS=ON
 make -j
 sudo make install
+sudo ldconfig
 ```
 2) in this repo, do
 ```
