@@ -1,4 +1,4 @@
-# distutils: libraries = primecount
+# distutils: libraries = primesieve primecount
 # distutils: language = c++
 
 from libc.stdint cimport int64_t

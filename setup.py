@@ -15,13 +15,19 @@ class build_ext(du_build_ext):
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+lib_path='/home/dimpase/tmp/lib'
+#lib_path='/usr/local/lib'
+
 extensions = [
     Extension(
-        "primecount.primecount",
+            "primecount.primecount",
 #        include_dirs = ["/usr/local/include"],
-        sources=["primecount/primecount.pyx"],
-        language="c++",
-        libraries=["primecount"]),
+            sources=["primecount/primecount.pyx"],
+            language="c++",
+            libraries=["primecount","primesieve"],
+            library_dirs=[lib_path],
+            extra_link_args=['-Wl,-rpath,'+lib_path],
+        ),
 #    Extension(
 #        "primecount.test",
 #        sources=["primecount/test.pyx"]),
@@ -29,17 +35,15 @@ extensions = [
 
 setup(
     name='primecount',
-    version='0.1.2',
-    description='bla',
+    version='0.0.0',
+    description='Cython interface for C++ primecount library',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/dimpase/primecount',
-    author='Vincent',
+    author='SageMath Developers',
     author_email='sage-devel@googlegroups.com',
     license='GPLv3',
-#    language_level=3,
     packages=find_packages(),
-#    include_dirs = ["/usr/local/include"],
     ext_modules=extensions,
     zip_safe=False,
     python_requires='>=3.7',
