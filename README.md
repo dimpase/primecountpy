@@ -23,7 +23,7 @@ python3 setup.py install --user
 `python3`
 and
 ```
->>> import primecount
+>>> import primecountpy as primecount
 >>> primecount.pi(1000)
 ```
 

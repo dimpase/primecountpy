@@ -7,7 +7,7 @@ class build_ext(du_build_ext):
         from Cython.Build.Dependencies import cythonize
         self.distribution.ext_modules[:] = cythonize(
             self.distribution.ext_modules,
-            include_path = ["primecount"],
+            include_path = ["primecountpy"],
             language_level=3)
         du_build_ext.run(self)
 
@@ -20,9 +20,9 @@ lib_path='/home/dimpase/tmp/lib'
 
 extensions = [
     Extension(
-            "primecount.primecount",
+            "primecountpy.primecount",
 #        include_dirs = ["/usr/local/include"],
-            sources=["primecount/primecount.pyx"],
+            sources=["primecountpy/primecount.pyx"],
             language="c++",
             libraries=["primecount","primesieve"],
             library_dirs=[lib_path],
@@ -34,12 +34,12 @@ extensions = [
     ]
 
 setup(
-    name='primecount',
+    name='primecountpy',
     version='0.0.0',
     description='Cython interface for C++ primecount library',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/dimpase/primecount',
+    url='https://github.com/dimpase/primecountpy',
     author='SageMath Developers',
     author_email='sage-devel@googlegroups.com',
     license='GPLv3',
@@ -47,9 +47,9 @@ setup(
     ext_modules=extensions,
     zip_safe=False,
     python_requires='>=3.7',
-    package_dir={'primecount': 'primecount'},
+    package_dir={'primecountpy': 'primecountpy'},
     install_requires=["Cython"],
-    package_data={"primecount": ["*.pxd"]},
+    package_data={"primecountpy": ["*.pxd"]},
     cmdclass={'build_ext': build_ext},
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
