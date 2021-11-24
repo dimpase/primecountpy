@@ -31,10 +31,10 @@ cpdef int64_t prime_pi(int64_t n, method=None) except -1:
 
     EXAMPLES::
 
-        sage: from sage.interfaces.primecount import prime_pi
-        sage: prime_pi(1000) == 168
+        >>> from primecountpy.primecount import prime_pi
+        >>> prime_pi(1000) == 168
         True
-        sage: prime_pi(1000, method='deleglise_rivat') == 168
+        >>> prime_pi(1000, method='deleglise_rivat') == 168
         True
     """
     cdef int64_t ans
@@ -49,12 +49,12 @@ cpdef prime_pi_128(n):
 
     EXAMPLES::
 
-        sage: from sage.interfaces.primecount import prime_pi_128
+        >>> from primecountpy.primecount import prime_pi_128
 
-        sage: prime_pi_128(1000)
+        >>> prime_pi_128(1000)
         168
-        sage: nth_prime_128(2**65)   # not tested
-        ?
+        >>> prime_pi_128(10**10)
+        455052511
     """
     cdef cppstring s = str(n).encode('ascii')
     cdef bytes ans
@@ -69,9 +69,9 @@ cpdef int64_t nth_prime(int64_t n) except -1:
 
     EXAMPLES::
 
-        sage: from sage.interfaces.primecount import nth_prime
+        >>> from primecountpy.primecount import nth_prime
 
-        sage: nth_prime(168) == 997
+        >>> nth_prime(168) == 997
         True
     """
     if n <= 0:
@@ -92,11 +92,11 @@ cpdef int64_t phi(int64_t x, int64_t a):
 
     EXAMPLES::
 
-         sage: from sage.interfaces.primecount import phi
+         >>> from primecountpy.primecount import phi
 
-         sage: phi(1000, 3) == 266
+         >>> phi(1000, 3) == 266
          True
-         sage: phi(2**30, 100) == 95446716
+         >>> phi(2**30, 100) == 95446716
          True
     """
     return pcount.phi(x, a)

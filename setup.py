@@ -16,21 +16,16 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 lib_path='/home/dimpase/tmp/lib'
-#lib_path='/usr/local/lib'
 
 extensions = [
     Extension(
             "primecountpy.primecount",
-#        include_dirs = ["/usr/local/include"],
             sources=["primecountpy/primecount.pyx"],
             language="c++",
             libraries=["primecount","primesieve"],
             library_dirs=[lib_path],
             extra_link_args=['-Wl,-rpath,'+lib_path],
         ),
-#    Extension(
-#        "primecount.test",
-#        sources=["primecount/test.pyx"]),
     ]
 
 setup(

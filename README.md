@@ -27,7 +27,7 @@ and
 >>> primecount.pi(1000)
 ```
 
-## Building dependencies without root:
+## Building dependencies without root
 
 set the desired location, e.g. export WDIR=$HOME/tmp
 
@@ -48,6 +48,23 @@ cmake -DBUILD_STATIC_LIBS=OFF -DBUILD_SHARED_LIBS=ON \
 make -j install # no sudo!
 ```
 
-TODO:
+## Testing with pytest
 
-$WDIR will need to be passed to `setup.py`
+install pre-requisites:
+
+```
+pip3 install pytest pytest-cython
+```
+
+Clean up, and build in-place
+
+```
+git clean -fdx
+python3 setup.py build_ext --inplace
+pytest --doctest-cython primecountpy -v
+```
+
+## TODO:
+
+* $WDIR will need to be passed to `setup.py`
+* building docs
