@@ -1,5 +1,5 @@
 r"""
-Interface to the primecount library
+Interface to the `primecount <https://github.com/kimwalisch/primecount>`_ C++ library
 """
 #*****************************************************************************
 #       Copyright (C) 2018 Vincent Delecroix <20100.delecroix@gmail.com>
