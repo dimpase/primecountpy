@@ -48,6 +48,17 @@ cmake -DBUILD_STATIC_LIBS=OFF -DBUILD_SHARED_LIBS=ON \
 make -j install # no sudo!
 ```
 
+After this, build/install the package with `pip`
+```
+pip3 install -e . --prefix=~/.local --global-option=build_ext  --global-option="--library-dirs=$WDIR" --global-option="--rpath=$WDIR"
+```
+
+At this point, you can test it with `pytest` (see below for details on `pytest`)
+
+```
+pytest --doctest-cython primecountpy -v
+```
+
 ## Testing with pytest
 
 install pre-requisites:
@@ -66,5 +77,4 @@ pytest --doctest-cython primecountpy -v
 
 ## TODO:
 
-* $WDIR will need to be passed to `setup.py`
-* building docs
+make it ready for PyPI

@@ -15,16 +15,12 @@ class build_ext(du_build_ext):
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-lib_path='/home/dimpase/tmp/lib'
-
 extensions = [
     Extension(
             "primecountpy.primecount",
             sources=["primecountpy/primecount.pyx"],
             language="c++",
             libraries=["primecount","primesieve"],
-            library_dirs=[lib_path],
-            extra_link_args=['-Wl,-rpath,'+lib_path],
         ),
     ]
 
