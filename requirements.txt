@@ -1,0 +1,6 @@
+setuptools
+distutils
+wheel
+Cython
+cysignals
+Sphinx>=3.0

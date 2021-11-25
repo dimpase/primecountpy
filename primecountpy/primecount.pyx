@@ -3,6 +3,7 @@ Interface to the `primecount <https://github.com/kimwalisch/primecount>`_ C++ li
 """
 #*****************************************************************************
 #       Copyright (C) 2018 Vincent Delecroix <20100.delecroix@gmail.com>
+#       Copyright (C) 2021 Dima Pasechnik <dima@pasechnik.info>
 #
 #  Distributed under the terms of the GNU General Public License (GPL)
 #  as published by the Free Software Foundation; either version 2 of
@@ -29,11 +30,16 @@ cpdef int64_t prime_pi(int64_t n, method=None) except -1:
 
     - ``n`` - an integer
 
-    EXAMPLES::
+    EXAMPLES:
+
+    ::
 
         >>> from primecountpy.primecount import prime_pi
         >>> prime_pi(1000) == 168
         True
+
+    `method` has no effect, retained for compatibility::
+
         >>> prime_pi(1000, method='deleglise_rivat') == 168
         True
     """
