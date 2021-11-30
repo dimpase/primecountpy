@@ -1,3 +1,6 @@
 [build-system]
-requires = ["setuptools", "distutils", "wheel", "Cython", "cysignals"]
+requires = ["setuptools", "wheel", "Cython", "cysignals"]
 build-backend = "setuptools.build_meta"
+[tool.cibuildwheel]
+test-requires = "pytest pytest-cython"
+test-command = "pytest --doctest-cython {project}/primecountpy/primecountpy -v"
