@@ -74,7 +74,3 @@ git clean -fdx
 python3 setup.py build_ext --inplace
 pytest --doctest-cython primecountpy -v
 ```
-
-## TODO:
-
-make it ready for PyPI
