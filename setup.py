@@ -34,6 +34,10 @@ setup(
     url='https://github.com/dimpase/primecountpy',
     author='SageMath Developers',
     author_email='sage-devel@googlegroups.com',
+    project_urls={
+        "User Manual": "https://primecountpy.readthedocs.io",
+        "Bug Tracker": "https://github.com/dimpase/primecountpy/issues",
+    },
     license='GPLv3',
     packages=find_packages(),
     ext_modules=extensions,
