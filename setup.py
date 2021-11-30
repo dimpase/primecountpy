@@ -8,6 +8,7 @@ class build_ext(du_build_ext):
         self.distribution.ext_modules[:] = cythonize(
             self.distribution.ext_modules,
             include_path = ["primecountpy"],
+            compiler_directives={'embedsignature': True},
             language_level=3)
         du_build_ext.run(self)
 
