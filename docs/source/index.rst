@@ -9,7 +9,7 @@ Welcome to primecountpy's documentation!
    :caption: Contents:
 
         primecountpy <modules/primecountpy.primecount.rst>
-
+        Installation, testing, documentation <installation.md>
 
 * :ref:`genindex`
 * :ref:`search`

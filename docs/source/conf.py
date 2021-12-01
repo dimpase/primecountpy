@@ -22,7 +22,8 @@ copyright = '2021, SageMath Developers'
 author = 'SageMath Developers'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.0'
+with open("../../VERSION", "r") as version_file:
+    release = version_file.read().strip()
 
 
 # -- General configuration ---------------------------------------------------
@@ -32,7 +33,9 @@ release = '0.0.0'
 # ones.
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.intersphinx',
-              'sphinx.ext.autosummary' ]
+              'sphinx.ext.autosummary',
+              'myst_parser',
+             ]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

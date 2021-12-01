@@ -16,6 +16,10 @@ class build_ext(du_build_ext):
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+with open('VERSION') as version_file:
+    version = version_file.read().strip()
+
+
 extensions = [
     Extension(
             "primecountpy.primecount",
@@ -27,7 +31,6 @@ extensions = [
 
 setup(
     name='primecountpy',
-    version='0.0.0',
     description='Cython interface for C++ primecount library',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -45,7 +48,9 @@ setup(
     python_requires='>=3.7',
     package_dir={'primecountpy': 'primecountpy'},
     install_requires=["Cython", "cysignals"],
-    package_data={"primecountpy": ["*.pxd"]},
+    package_data={"primecountpy": ["*.pxd"],
+          "docs": ["*"], "docs.source": ["*"], "docs.source.modules": ["*"],
+          },
     cmdclass={'build_ext': build_ext},
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
