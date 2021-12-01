@@ -39,7 +39,10 @@ and
 
 ## Building dependencies without root
 
-set the desired location, e.g. export WDIR=$HOME/tmp
+set the desired location, e.g.
+```
+export WDIR=$HOME/tmp
+```
 
 install libprimesieve as follows:
 ```
@@ -77,7 +80,7 @@ install pre-requisites:
 pip3 install pytest pytest-cython
 ```
 
-Clean up, and build in-place
+Clean up, and build in-place (with system-wide install of primecount).
 
 ```
 git clean -fdx
