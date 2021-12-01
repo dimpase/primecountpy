@@ -8,7 +8,7 @@ class build_ext(du_build_ext):
         self.distribution.ext_modules[:] = cythonize(
             self.distribution.ext_modules,
             include_path = ["primecountpy"],
-            compiler_directives={'embedsignature': True},
+            compiler_directives={'embedsignature': True, 'binding': True},
             language_level=3)
         du_build_ext.run(self)
 
@@ -44,7 +44,7 @@ setup(
     zip_safe=False,
     python_requires='>=3.7',
     package_dir={'primecountpy': 'primecountpy'},
-    install_requires=["Cython"],
+    install_requires=["Cython", "cysignals"],
     package_data={"primecountpy": ["*.pxd"]},
     cmdclass={'build_ext': build_ext},
     classifiers=[
