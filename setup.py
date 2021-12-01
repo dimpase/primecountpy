@@ -32,6 +32,7 @@ extensions = [
 setup(
     name='primecountpy',
     description='Cython interface for C++ primecount library',
+    version=version,
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/dimpase/primecountpy',

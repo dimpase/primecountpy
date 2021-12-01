@@ -1,3 +1,4 @@
 include AUTHORS
+include VERSION
 include setup.py pyproject.toml
 graft primecountpy
