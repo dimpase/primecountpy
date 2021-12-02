@@ -35,7 +35,7 @@ name: Run Sage CI for Debian stable
 ## systems/configurations.
 
 on:
-#  push:
+  # push:
   pull_request:
   workflow_dispatch:
     # Allow to run manually
@@ -91,7 +91,7 @@ jobs:
       max-parallel: 32
       matrix:
         tox_system_factor: [debian-bullseye]
-        tox_packages_factor: [minimal, standard]
+        tox_packages_factor: [standard]
     env:
       TOX_ENV: docker-${{ matrix.tox_system_factor }}-${{ matrix.tox_packages_factor }}
       LOGS_ARTIFACT_NAME: logs-commit-${{ github.sha }}-tox-docker-${{ matrix.tox_system_factor }}-${{ matrix.tox_packages_factor }}
