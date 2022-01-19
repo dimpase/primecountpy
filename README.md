@@ -26,7 +26,7 @@ python3 setup.py install --user
 and
 ```
 >>> import primecountpy as primecount
->>> primecount.pi(1000)
+>>> primecount.prime_pi(1000)
 ```
 
 More details on installation without root (sudo) access,
