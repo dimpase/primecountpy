@@ -32,3 +32,10 @@ and
 More details on installation without root (sudo) access,
 and testing with `pytest`, may be found in the [manual](https://primecountpy.readthedocs.io).
 
+
+## License
+
+Distributed under the terms of the [GNU General Public
+License](./LICENSE) (GPL) as published by the [Free Software
+Foundation](https://www.fsf.org/); either version 2 of the License,
+or (at your option) any later version.
