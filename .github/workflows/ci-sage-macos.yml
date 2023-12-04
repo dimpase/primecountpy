@@ -80,9 +80,7 @@ jobs:
           name: upstream
 
   macos:
-
-    # https://github.com/sagemath/sage/pull/36338
-    uses: mkoeppe/sage/.github/workflows/macos.yml@tox_2023_09
+    uses: sagemath/sage/.github/workflows/macos.yml@develop
     with:
       osversion_xcodeversion_toxenv_tuples: >-
         [["latest", "",           "homebrew-macos-usrlocal-minimal"],
@@ -91,9 +89,7 @@ jobs:
          ["latest", "",           "conda-forge-macos-standard"]]
       # FIXME: duplicated from env.TARGETS
       targets:           SAGE_CHECK=no SAGE_CHECK_PACKAGES=primecount,primecountpy primecount primecountpy
-      sage_repo:         mkoeppe/sage
-      sage_ref:          tox_2023_09
-      #sage_repo:         sagemath/sage
-      #sage_ref:          refs/pull/36110/merge
+      sage_repo:         sagemath/sage
+      sage_ref:          develop
       upstream_artifact: upstream
-    needs: [dist, macos-without-sage]
+    needs: [dist]
