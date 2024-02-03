@@ -48,7 +48,7 @@ setup(
     zip_safe=False,
     python_requires='>=3.7',
     package_dir={'primecountpy': 'primecountpy'},
-    install_requires=["Cython", "cysignals"],
+    install_requires=["cysignals"],
     package_data={"primecountpy": ["*.pxd"],
           "docs": ["*"], "docs.source": ["*"], "docs.source.modules": ["*"],
           },
