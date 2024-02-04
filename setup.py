@@ -25,7 +25,6 @@ extensions = [
 setup(
     packages=find_packages(),
     ext_modules=extensions,
-    zip_safe=False,
     package_dir={'primecountpy': 'primecountpy'},
     package_data={"primecountpy": ["*.pxd"],
           "docs": ["*"], "docs.source": ["*"], "docs.source.modules": ["*"],
