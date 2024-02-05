@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 from setuptools.extension import Extension
-from distutils.command.build_ext import build_ext as du_build_ext
+from setuptools.command.build_ext import build_ext as _build_ext
 
-class build_ext(du_build_ext):
+class build_ext(_build_ext):
     def run(self):
         from Cython.Build.Dependencies import cythonize
         self.distribution.ext_modules[:] = cythonize(
@@ -10,7 +10,7 @@ class build_ext(du_build_ext):
             include_path = ["primecountpy"],
             compiler_directives={'embedsignature': True, 'binding': True},
             language_level=3)
-        du_build_ext.run(self)
+        _build_ext.run(self)
 
 
 with open('VERSION') as version_file:
