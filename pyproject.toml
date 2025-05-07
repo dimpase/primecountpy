@@ -1,36 +1,18 @@
-[build-system]
-requires = [
-    "setuptools>=61.2",
-    "Cython",
-    "cysignals",
-]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "primecountpy"
-version = "0.1.0"
-description = "Cython interface for C++ primecount library"
+version = "0.2.0"
+description = "Add your description here"
+readme = "README.md"
 authors = [
-    {name = "SageMath Developers", email = "sage-devel@googlegroups.com"},
+    { name = "Dima Pasechnik", email = "dima@pasechnik.info" }
 ]
-dependencies = [
-    "cysignals",
-]
-requires-python = ">=3.7"
-license = {text = "GPLv3"}
-classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    "Programming Language :: Python :: 3",
-    "Topic :: Scientific/Engineering :: Mathematics",
-]
+requires-python = ">=3.13"
+dependencies = []
 
-[project.readme]
-file = "README.md"
-content-type = "text/markdown"
+[tool.scikit-build]
+minimum-version = "build-system.requires"
+build-dir = "build/{wheel_tag}"
 
-[project.urls]
-Homepage = "https://github.com/dimpase/primecountpy"
-"User Manual" = "https://primecountpy.readthedocs.io"
-"Bug Tracker" = "https://github.com/dimpase/primecountpy/issues"
+[build-system]
+requires = ["scikit-build-core>=0.10", "nanobind"]
+build-backend = "scikit_build_core.build"
