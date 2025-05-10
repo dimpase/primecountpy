@@ -13,7 +13,7 @@ Interface to the `primecount <https://github.com/kimwalisch/primecount>`_ C++ li
 
 from libc.stdint cimport int64_t
 from libcpp.string cimport string as cppstring
-from cpython.int cimport PyInt_FromString
+from cpython.long cimport PyLong_FromString
 
 from cysignals.signals cimport sig_on, sig_off
 cimport defs as pcount
@@ -67,7 +67,7 @@ cpdef prime_pi_128(n):
     sig_on()
     ans = pcount.pi(s)
     sig_off()
-    return PyInt_FromString(ans, NULL, 10)
+    return PyLong_FromString(ans, NULL, 10)
 
 cpdef int64_t nth_prime(int64_t n) except -1:
     r"""
