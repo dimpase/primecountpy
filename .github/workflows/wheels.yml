@@ -33,7 +33,7 @@ jobs:
           CIBW_BEFORE_BUILD_LINUX: >
                cd /tmp/primecount &&
                cmake . -DWITH_OPENMP=OFF -DCMAKE_VERBOSE_MAKEFILE=TRUE -DBUILD_SHARED_LIBS=ON -DBUILD_STATIC_LIBS=OFF &&
-               make && sudo make install
+               make && make install
 
           CIBW_BEFORE_BUILD_MACOS: >
                cd /tmp/primecount &&
