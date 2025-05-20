@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "primecountpy"
-version = "0.1.0"
+version = "0.1.1"
 description = "Cython interface for C++ primecount library"
 authors = [
     {name = "SageMath Developers", email = "sage-devel@googlegroups.com"},
