@@ -10,6 +10,7 @@ class build_ext(du_build_ext):
             include_path = ["primecountpy"],
             compiler_directives={'embedsignature': True, 'binding': True},
             language_level=3)
+        du_build_ext.finalize_options()
         du_build_ext.run(self)
 
 
