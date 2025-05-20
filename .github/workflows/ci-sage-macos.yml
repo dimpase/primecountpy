@@ -83,9 +83,7 @@ jobs:
     uses: sagemath/sage/.github/workflows/macos.yml@develop
     with:
       osversion_xcodeversion_toxenv_tuples: >-
-        [["latest", "",           "homebrew-macos-usrlocal-minimal"],
-         ["latest", "",           "homebrew-macos-usrlocal-standard"],
-         ["13",     "xcode_15.0", "homebrew-macos-usrlocal-standard"],
+        [["latest", "",           "homebrew-macos-usrlocal-standard"],
          ["latest", "",           "conda-forge-macos-standard"]]
       # FIXME: duplicated from env.TARGETS
       targets:           SAGE_CHECK=no SAGE_CHECK_PACKAGES=primecount,primecountpy primecount primecountpy
