@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 from setuptools.extension import Extension
-from distutils.command.build_ext import build_ext as du_build_ext
+from setuptools.command.build_ext import build_ext as du_build_ext
 
 class build_ext(du_build_ext):
     def run(self):
