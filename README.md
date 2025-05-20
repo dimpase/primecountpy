@@ -18,7 +18,7 @@ sudo ldconfig # linux only
 ```
 2) in this repo, do
 ```
-python3 setup.py install --user
+pip install . --user
 ```
 3)
 

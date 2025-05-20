@@ -25,7 +25,7 @@ sudo dnf install primecount primecount-devel`
 
 2) in this repo, do
 ```
-python3 setup.py install --user
+pip install . --user
 ```
 3)
 
@@ -84,7 +84,7 @@ Clean up, and build in-place (with system-wide install of primecount).
 
 ```
 git clean -fdx
-python3 setup.py build_ext --inplace
+pip install -e . 
 pytest --doctest-cython primecountpy -v
 ```
 
