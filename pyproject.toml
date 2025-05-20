@@ -1,6 +1,6 @@
 [build-system]
 requires = [
-    "setuptools>=61.2",
+    "setuptools>=73.0.1",
     "Cython",
     "cysignals",
 ]
@@ -16,7 +16,7 @@ authors = [
 dependencies = [
     "cysignals",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 license = {file = "LICENSE"}
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
