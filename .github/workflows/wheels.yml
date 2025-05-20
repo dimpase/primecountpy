@@ -40,6 +40,8 @@ jobs:
                cmake . -DWITH_OPENMP=OFF -DCMAKE_VERBOSE_MAKEFILE=TRUE -DBUILD_SHARED_LIBS=OFF -DBUILD_STATIC_LIBS=ON &&
                make && sudo make install
 
+          CIBW_SKIP: pp*
+
         run: python -m cibuildwheel --output-dir wheelhouse
 
       - uses: actions/upload-artifact@v4
