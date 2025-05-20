@@ -17,7 +17,7 @@ dependencies = [
     "cysignals",
 ]
 requires-python = ">=3.8"
-license = "GPL-3.0-or-later"
+license = {file = "LICENSE"}
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Science/Research",
