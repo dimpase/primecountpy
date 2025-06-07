@@ -33,3 +33,6 @@ content-type = "text/markdown"
 Homepage = "https://github.com/dimpase/primecountpy"
 "User Manual" = "https://primecountpy.readthedocs.io"
 "Bug Tracker" = "https://github.com/dimpase/primecountpy/issues"
+
+[tool.setuptools]
+include-package-data = false
