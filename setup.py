@@ -13,10 +13,6 @@ class build_ext(du_build_ext):
         du_build_ext.run(self)
 
 
-with open('VERSION') as version_file:
-    version = version_file.read().strip()
-
-
 extensions = [
     Extension(
             "primecountpy.primecount",
@@ -27,7 +23,6 @@ extensions = [
     ]
 
 setup(
-    version=version,
     packages=find_packages(),
     ext_modules=extensions,
     zip_safe=False,
