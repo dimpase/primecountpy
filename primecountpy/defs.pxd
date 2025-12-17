@@ -1,13 +1,17 @@
 # distutils: libraries = primesieve primecount
 # distutils: language = c++
 
-from libc.stdint cimport int64_t
+from libc.stdint cimport int64_t, uint64_t
 from libcpp.string cimport string as cppstring
 
 cdef extern from "primecount.hpp" namespace "primecount":
+    ctypedef struct pc_int128_t:
+        uint64_t lo
+        int64_t hi
+
     int64_t pi(int64_t x)
 
-    cppstring pi(const cppstring& x)
+    pc_int128_t pi(const pc_int128_t x)
 
     int64_t nth_prime(int64_t n)
 
@@ -15,8 +19,5 @@ cdef extern from "primecount.hpp" namespace "primecount":
 
     void set_num_threads(int num_threads)
     int get_num_threads()
-
-    cppstring get_max_x()
-    cppstring get_max_x(double alpha)
 
     cppstring primecount_version()
