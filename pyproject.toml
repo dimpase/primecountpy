@@ -1,23 +1,17 @@
 [build-system]
-requires = [
-    "setuptools>=73.0.1",
-    "Cython",
-    "cysignals",
-]
-build-backend = "setuptools.build_meta"
+requires = ["meson-python>=0.16.0", "Cython>=3.0", "cysignals"]
+build-backend = "mesonpy"
 
 [project]
 name = "primecountpy"
 version = "0.1.1"
 description = "Cython interface for C++ primecount library"
 authors = [
-    {name = "SageMath Developers", email = "sage-devel@googlegroups.com"},
+    { name = "SageMath Developers", email = "sage-devel@googlegroups.com" },
 ]
-dependencies = [
-    "cysignals",
-]
+dependencies = ["cysignals"]
 requires-python = ">=3.11"
-license = {file = "LICENSE"}
+license = { file = "LICENSE" }
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Science/Research",
@@ -33,6 +27,3 @@ content-type = "text/markdown"
 Homepage = "https://github.com/dimpase/primecountpy"
 "User Manual" = "https://primecountpy.readthedocs.io"
 "Bug Tracker" = "https://github.com/dimpase/primecountpy/issues"
-
-[tool.setuptools]
-include-package-data = false
