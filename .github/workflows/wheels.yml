@@ -1,14 +1,16 @@
 name: Build wheels
 
-on: 
-  # push:
-   workflow_dispatch:
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build_wheels:
     name: Build wheels on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macOS-latest, macos-13]
 
