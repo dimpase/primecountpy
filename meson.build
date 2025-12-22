@@ -18,8 +18,8 @@ py.install_sources(
   subdir: 'primecountpy'
 )
 
-primecount_dep = cxx.find_library('primecount', required: true)
-primesieve_dep = cxx.find_library('primesieve', required: true)
+primecount_dep = dependency('primecount', required: true)
+primesieve_dep = dependency('primesieve', required: true)
 
 src = include_directories('src/primecountpy')
 
