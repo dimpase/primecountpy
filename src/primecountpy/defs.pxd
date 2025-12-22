@@ -1,6 +1,3 @@
-# distutils: libraries = primesieve primecount
-# distutils: language = c++
-
 from libc.stdint cimport int64_t, uint64_t
 from libcpp.string cimport string as cppstring
 
