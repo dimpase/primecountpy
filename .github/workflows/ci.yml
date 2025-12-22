@@ -40,4 +40,4 @@ jobs:
         uv sync --frozen --inexact -v --no-install-project
         uv sync --frozen --inexact -v --no-build-isolation --no-editable --config-settings=builddir=builddir
     - name: Test
-      run: uv run --no-editable pytest --doctest-cython primecountpy -v
+      run: uv run --no-editable pytest --doctest-cython . -v
