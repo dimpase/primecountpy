@@ -4,7 +4,7 @@ build-backend = "mesonpy"
 
 [project]
 name = "primecountpy"
-version = "0.1.1"
+version = "0.2"
 description = "Cython interface for C++ primecount library"
 authors = [
     { name = "SageMath Developers", email = "sage-devel@googlegroups.com" },
@@ -13,7 +13,7 @@ dependencies = ["cysignals"]
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
 classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 2 - Alpha",
     "Intended Audience :: Science/Research",
     "Programming Language :: Python :: 3",
     "Topic :: Scientific/Engineering :: Mathematics",
@@ -40,6 +40,12 @@ dev = [
     "pkgconf>=2.4.3.post2",
     "pytest>=8.4.2",
     "pytest-cython>=0.3.0",
+]
+
+[project.optional-dependencies]
+doc = [
+    "sphinx",
+    "myst_parser",
 ]
 
 [tool.meson-python.args]
