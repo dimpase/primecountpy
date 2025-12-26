@@ -15,11 +15,14 @@ cmake = import('cmake')
 # Compilers
 cxx = meson.get_compiler('cpp')
 
-# Build bundled primecount with PIC so it can link into the Python extension.
-primecount_opts = cmake.subproject_options()
-primecount_opts.add_cmake_defines({'CMAKE_POSITION_INDEPENDENT_CODE': 'ON'})
-primecount_proj = cmake.subproject('primecount', options: primecount_opts)
-primecount_dep = primecount_proj.dependency('libprimecount-static')
+primecount_dep = dependency('primecount', version: '>=8', required: false)
+if not primecount_dep.found()
+  # Build bundled primecount with PIC so it can link into the Python extension.
+  primecount_opts = cmake.subproject_options()
+  primecount_opts.add_cmake_defines({'CMAKE_POSITION_INDEPENDENT_CODE': 'ON'})
+  primecount_proj = cmake.subproject('primecount', options: primecount_opts)
+  primecount_dep = primecount_proj.dependency('libprimecount-static')
+endif
 inc_cysignals = run_command(
   py,
   [
