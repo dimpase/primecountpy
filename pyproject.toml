@@ -52,6 +52,7 @@ setup = ['--default-library=static']
 install = ['--skip-subprojects']
 
 [tool.cibuildwheel]
+skip = ["*-win32"]
 #test-groups = ["dev"]
 #test-command = "pytest ."
 build-frontend = "build[uv]"
