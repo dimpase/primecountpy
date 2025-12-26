@@ -34,7 +34,7 @@ jobs:
           - ubuntu-latest
           - ubuntu-24.04-arm
           - windows-latest
-          - windows-11-arm
+          #- windows-11-arm: https://github.com/dimpase/primecountpy/issues/30
           - macos-15-intel
           - macos-latest
     steps:
