@@ -43,13 +43,15 @@ dev = [
 ]
 
 [project.optional-dependencies]
-doc = [
-    "sphinx",
-    "myst_parser",
-]
+doc = ["sphinx", "myst_parser"]
 
 [tool.meson-python.args]
 # Don't install subprojects and ensure that targets are built as static
 # as per https://mesonbuild.com/meson-python/how-to-guides/shared-libraries.html#static-library-from-subproject
 setup = ['--default-library=static']
 install = ['--skip-subprojects']
+
+[tool.cibuildwheel]
+#test-groups = ["dev"]
+#test-command = "pytest ."
+build-frontend = "build[uv]"
