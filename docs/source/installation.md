@@ -91,6 +91,11 @@ pytest --doctest-cython primecountpy -v
 ## Documentation
 
 Documentation is built with Sphinx, and automatically (on push to GitHub git repo)
-re-built and updates. 
+re-built and updated. 
 
-To build documentation locally, run `make html` in `docs/` subdirectory.
+To build documentation locally, make sure that all the needed extra dependencies are installed. E.g.
+```
+pip install .[doc] --user
+```
+will make sure this is the case.
+Then run `make html` in `docs/` subdirectory.
