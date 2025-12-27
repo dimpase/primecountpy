@@ -63,7 +63,7 @@ make -j install # no sudo!
 
 After this, build/install the package with `pip`
 ```
-pip3 install -e . --prefix=~/.local --global-option=build_ext  --global-option="--library-dirs=$WDIR" --global-option="--rpath=$WDIR"
+pip3 install -e . --prefix=~/.local --global-option=build_ext  --global-option="--library-dirs=$WDIR" --global-option="--rpath=$WDIR" --config-settings=setup-args="--wrap-mode=nodownload"
 ```
 
 At this point, you can test it with `pytest` (see below for details on `pytest`)
@@ -88,6 +88,18 @@ pip install -e .
 pytest --doctest-cython primecountpy -v
 ```
 
+## Using the internal subproject to build primecount
+
+Since version 0.2.0,
+```
+pip install . --user
+```
+will try to download, build, and use primecount. Use 
+```
+pip install . --user --config-settings=setup-args="--wrap-mode=nodownload"
+```
+to disable this.
+
 ## Documentation
 
 Documentation is built with Sphinx, and automatically (on push to GitHub git repo)
@@ -98,4 +110,4 @@ To build documentation locally, make sure that all the needed extra dependencies
 pip install .[doc] --user
 ```
 will make sure this is the case.
-Then run `make html` in `docs/` subdirectory.
+Then build the module as explained above, and run `make html` in `docs/` subdirectory.

@@ -18,7 +18,7 @@ sudo ldconfig # linux only
 ```
 2) in this repo, do
 ```
-pip install . --user
+pip install . --user --config-settings=setup-args="--wrap-mode=nodownload"
 ```
 3)
 
@@ -30,8 +30,8 @@ and
 ```
 
 More details on installation without root (sudo) access,
-and testing with `pytest`, may be found in the [manual](https://primecountpy.readthedocs.io).
-
+and testing with `pytest`, may be found in the [manual](https://primecountpy.readthedocs.io),
+which is also included in `docs`.
 
 ## License
 
