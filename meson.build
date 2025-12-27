@@ -15,7 +15,7 @@ cmake = import('cmake')
 # Compilers
 cxx = meson.get_compiler('cpp')
 
-primecount_dep = dependency('primecount', required: false, version: '>=8.0.0')
+primecount_dep = dependency('primecount', required: false, version: '>=8.0')
 if not primecount_dep.found()
   # Build bundled primecount with PIC so it can link into the Python extension.
   primecount_opts = cmake.subproject_options()
