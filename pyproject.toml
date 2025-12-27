@@ -4,7 +4,7 @@ build-backend = "mesonpy"
 
 [project]
 name = "primecountpy"
-version = "0.2.0"
+version = "0.2.1"
 description = "Cython interface for C++ primecount library"
 authors = [
     { name = "SageMath Developers", email = "sage-devel@googlegroups.com" },
