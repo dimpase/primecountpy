@@ -38,6 +38,12 @@ jobs:
     - name: Build
       run: |
         uv sync --frozen --inexact -v --no-install-project
-        uv sync --frozen --inexact -v --no-build-isolation --no-editable --config-settings=builddir=builddir
+        if [ "${{ matrix.os }}" = "macos-latest" ]; then
+          brew update
+          brew install primecount
+          uv sync --frozen --inexact -v --no-build-isolation --no-editable --config-settings=builddir=builddir --config-settings=setup-args="--wrap-mode=nodownload"
+        else
+          uv sync --frozen --inexact -v --no-build-isolation --no-editable --config-settings=builddir=builddir
+        fi
     - name: Test
       run: uv run --no-editable pytest --doctest-cython . -v
