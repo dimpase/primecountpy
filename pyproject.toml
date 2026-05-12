@@ -4,14 +4,14 @@ build-backend = "mesonpy"
 
 [project]
 name = "primecountpy"
-version = "0.2.1"
+dynamic = ["version"]
 description = "Cython interface for C++ primecount library"
 authors = [
     { name = "SageMath Developers", email = "sage-devel@googlegroups.com" },
 ]
 dependencies = ["cysignals"]
-requires-python = ">=3.11"
-license = { file = "LICENSE" }
+requires-python = ">=3.12"
+license = "GPL-2.0-or-later"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
@@ -52,7 +52,12 @@ setup = ['--default-library=static']
 install = ['--skip-subprojects']
 
 [tool.cibuildwheel]
-skip = ["*-win32"]
+enable = ["cpython-freethreading"]
+skip = ["*-win32", "cp313t-*"]
 #test-groups = ["dev"]
-#test-command = "pytest ."
 build-frontend = "build[uv]"
+test-command = "python -c \"from primecountpy import nth_prime, prime_pi; assert prime_pi(1000) == 168; assert nth_prime(168) == 997\""
+
+[tool.cibuildwheel.windows]
+environment = { CC = "cl", CXX = "cl" }
+repair-wheel-command = "uv tool run --from delvewheel delvewheel repair -w {dest_dir} {wheel}"

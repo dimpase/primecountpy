@@ -4,8 +4,6 @@ on:
   pull_request:
     types: [opened, synchronize]
   push:
-    tags:
-      - '*'
   workflow_dispatch:
     # Allow to run manually
 
@@ -35,15 +33,32 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Setup uv
       uses: astral-sh/setup-uv@v6
-    - name: Build
+    - name: Setup MSVC
+      if: runner.os == 'Windows'
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
+    - name: Configure MSVC compiler
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        "CC=cl" >> $env:GITHUB_ENV
+        "CXX=cl" >> $env:GITHUB_ENV
+    - name: Prepare build dependencies
       run: |
         uv sync --frozen --inexact -v --no-install-project
-        if [ "${{ matrix.os }}" = "macos-latest" ]; then
-          brew update
-          brew install primecount
-          uv sync --frozen --inexact -v --no-build-isolation --no-editable --config-settings=builddir=builddir --config-settings=setup-args="--wrap-mode=nodownload"
-        else
-          uv sync --frozen --inexact -v --no-build-isolation --no-editable --config-settings=builddir=builddir
-        fi
+    - name: Install Homebrew primecount
+      if: matrix.os == 'macos-latest'
+      run: |
+        brew update
+        brew install primecount
+    - name: Build with system primecount
+      if: matrix.os == 'macos-latest'
+      run: uv sync --frozen --inexact -v --no-build-isolation --no-editable --config-settings=builddir=builddir --config-settings=setup-args="--wrap-mode=nodownload"
+    - name: Build with bundled primecount
+      if: matrix.os != 'macos-latest'
+      run: uv sync --frozen --inexact -v --no-build-isolation --no-editable --config-settings=builddir=builddir
     - name: Test
-      run: uv run --no-editable pytest --doctest-cython . -v
+      run: |
+        cd builddir
+        uv run meson test -v

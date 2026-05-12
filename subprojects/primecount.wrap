@@ -1,9 +1,9 @@
 [wrap-file]
-directory = primecount-8.0
+directory = primecount-8.4
 
-source_url = https://github.com/kimwalisch/primecount/archive/refs/tags/v8.0.tar.gz
-source_filename = v8.0.tar.gz
-source_hash = 0265081f45fc938a892a1fd975edb4ff2c097359fc2bfeb739be3d7a759cd36c
+source_url = https://github.com/kimwalisch/primecount/archive/refs/tags/v8.4.tar.gz
+source_filename = v8.4.tar.gz
+source_hash = c7bf47c041bfe4c3912a0d503ea44c1bb6c9003427c12574a6b497748b387612
 method = cmake
 [provide]
 primecount = libprimecount_static_dep
