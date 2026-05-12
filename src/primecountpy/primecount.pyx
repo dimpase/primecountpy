@@ -68,7 +68,7 @@ cpdef prime_pi_128(n):
     sig_on()
     ans = pcount.pi(s)
     sig_off()
-    return ans.lo | (ans.hi << 64)
+    return <object>ans.lo | (<object>ans.hi << 64)
 
 cpdef int64_t nth_prime(int64_t n) except -1:
     r"""
