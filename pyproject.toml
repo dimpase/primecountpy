@@ -59,5 +59,4 @@ build-frontend = "build[uv]"
 test-command = "python -c \"from primecountpy import nth_prime, prime_pi; assert prime_pi(1000) == 168; assert nth_prime(168) == 997\""
 
 [tool.cibuildwheel.windows]
-environment = { CC = "cl", CXX = "cl" }
 repair-wheel-command = "uv tool run --from delvewheel delvewheel repair -w {dest_dir} {wheel}"
