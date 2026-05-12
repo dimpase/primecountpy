@@ -16,11 +16,22 @@ make -j
 sudo make install
 sudo ldconfig # linux only
 ```
-2) in this repo, do
+2) In this repo, do
 ```
 pip install . --user --config-settings=setup-args="--wrap-mode=nodownload"
 ```
-3)
+3) Test with `pytest`
+```
+pytest
+```
+
+Alternatively, if you built with Meson, you can run tests via:
+```
+meson test -v -C builddir
+```
+where `builddir` is your Meson build directory.
+
+4)
 
 `python3`
 and
@@ -29,8 +40,8 @@ and
 >>> primecount.prime_pi(1000)
 ```
 
-More details on installation without root (sudo) access,
-and testing with `pytest`, may be found in the [manual](https://primecountpy.readthedocs.io),
+More details on installation without root (sudo) access
+may be found in the [manual](https://primecountpy.readthedocs.io),
 which is also included in `docs`.
 
 ## License
