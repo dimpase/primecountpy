@@ -45,12 +45,13 @@ jobs:
         if: runner.os == 'Windows'
         uses: ilammy/msvc-dev-cmd@v1
         with:
-          arch: x64
+          arch: ${{ runner.arch == 'ARM64' && 'amd64_arm64' || 'x64' }}
       - name: Configure MSVC compiler
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          $msvcLinker = Join-Path $env:VCToolsInstallDir 'bin\Hostx64\x64\link.exe'
+          $targetArch = if ('${{ runner.arch }}' -eq 'ARM64') { 'arm64' } else { 'x64' }
+          $msvcLinker = Join-Path $env:VCToolsInstallDir "bin\Hostx64\$targetArch\link.exe"
           if (-not (Test-Path $msvcLinker)) { throw "MSVC linker not found: $msvcLinker" }
           "CC=cl" >> $env:GITHUB_ENV
           "CXX=cl" >> $env:GITHUB_ENV
