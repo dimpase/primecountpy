@@ -37,10 +37,13 @@ jobs:
           #- windows-11-arm: https://github.com/dimpase/primecountpy/issues/30
           - macos-15-intel
           - macos-latest
-
+          - darwin-27
     steps:
       - uses: actions/checkout@v6
       - uses: astral-sh/setup-uv@v7
+      - name: Set Darwin 27 deployment target
+        if: matrix.os == 'darwin-27'
+        run: echo 'MACOSX_DEPLOYMENT_TARGET=27.0' >> "$GITHUB_ENV"
       - name: Build wheels
         uses: pypa/cibuildwheel@v3.3
       - uses: actions/upload-artifact@v5
