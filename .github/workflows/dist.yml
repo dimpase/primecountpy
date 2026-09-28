@@ -50,8 +50,12 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
+          $msvcLinker = Join-Path $env:VCToolsInstallDir 'bin\Hostx64\x64\link.exe'
+          if (-not (Test-Path $msvcLinker)) { throw "MSVC linker not found: $msvcLinker" }
           "CC=cl" >> $env:GITHUB_ENV
           "CXX=cl" >> $env:GITHUB_ENV
+          "CC_LD=$msvcLinker" >> $env:GITHUB_ENV
+          "CXX_LD=$msvcLinker" >> $env:GITHUB_ENV
       - name: Set Darwin 27 deployment target
         if: matrix.os == 'darwin-27'
         run: echo 'MACOSX_DEPLOYMENT_TARGET=27.0' >> "$GITHUB_ENV"
