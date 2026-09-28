@@ -7,9 +7,8 @@ We have split out primecount [SageMath](https://sagemath.org) spkg with its Cyth
 Quick installation and testing:
 
 1) Install primecount C++ library: either
-   a) install primecount version 8 or later with its development parts system-wide, using your package manager
-   or
-   b) install it from source, as follows
+   * install primecount version 8 or later with its development parts system-wide, using your package manager, or
+   * install it from source, as follows
 ```
 cd /tmp/
 git clone https://github.com/kimwalisch/primecount
