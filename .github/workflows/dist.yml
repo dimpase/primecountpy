@@ -41,6 +41,17 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: astral-sh/setup-uv@v7
+      - name: Setup MSVC
+        if: runner.os == 'Windows'
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+      - name: Configure MSVC compiler
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          "CC=cl" >> $env:GITHUB_ENV
+          "CXX=cl" >> $env:GITHUB_ENV
       - name: Set Darwin 27 deployment target
         if: matrix.os == 'darwin-27'
         run: echo 'MACOSX_DEPLOYMENT_TARGET=27.0' >> "$GITHUB_ENV"
